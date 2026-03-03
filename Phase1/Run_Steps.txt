@@ -1,0 +1,44 @@
+cd /usr/src
+tar xjvf kernel-source-2.4.27.tar.bz2
+
+/usr/src/kernel-source-2.4.27/arch/i386/kernel/entry.S
+/usr/src/kernel-source-2.4.27/include/asm-i386/unistd.h
+/usr/include/asm/unistd.h
+
+/usr/src/kernel-source-2.4.27/include/linux/getProcessInfoF25.h
+
+/usr/src/kernel-source-2.4.27/fs/getProcessInfoF25.c
+
+/usr/src/kernel-source-2.4.27/fs/Makefile
+
+/usr/include/linux/getProcessInfoF25.h
+
+make mrproper
+
+make menuconfig  # Configure 
+
+Network Options->Socket Filtering ->*
+Network Device Support->Ethernet(1000 Mbit)-> Intel Gigabit Ethernet Adaptor Driver ->*
+
+make dep
+
+make clean
+
+make bzImage
+
+make modules
+
+make modules_install
+
+/boot/grub/menu.lst -Add Kernel Info
+
+
+----------------------------
+
+reboot //in VM
+
+/home/cse331/
+
+gcc -o test_project test_project.c
+
+./test_project
